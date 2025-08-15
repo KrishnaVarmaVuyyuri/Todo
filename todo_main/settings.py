@@ -23,7 +23,7 @@ SECRET_KEY = config('SECRET_KEY', default='insecure-secret-key')  # Default only
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'your-app-name.onrender.com',  # Replace with your Render service name
+    'https://todo-05z3.onrender.com',  # Replace with your Render service name
     'localhost',
     '127.0.0.1'
 ]
