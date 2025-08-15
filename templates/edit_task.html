@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task - Django TODO App</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        .edit-task-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        .edit-task-container h3 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .edit-task-container input {
+            height: 45px;
+            font-size: 1rem;
+        }
+        .edit-task-container .btn {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            font-weight: 500;
+        }
+        .btn-update {
+            background-color: #4CAF50;
+            border: none;
+        }
+        .btn-update:hover {
+            background-color: #43a047;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="edit-task-container">
+            <h3 class="text-center">Edit Task</h3>
+            <form action="{% url 'edit_task' get_task.pk %}" method="POST" class="d-flex gap-2">
+                {% csrf_token %}
+                <input type="text" name="task" class="form-control" value="{{ get_task.task }}" placeholder="Update your task">
+                <button type="submit" class="btn btn-update text-white">
+                    <i class="fa fa-check"></i> Update
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
